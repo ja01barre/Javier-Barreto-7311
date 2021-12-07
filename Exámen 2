@@ -1,0 +1,95 @@
+#Python 2.7.17
+
+class animal:
+
+  
+
+    
+
+    def __init__(self, nombre, edad, cedulaDueno): 
+
+        if edad < 0:
+
+            print("Ingrese una edad no negativa")
+
+            pass
+
+        else:
+
+            self.nombre = nombre
+
+            self.edad = edad
+
+            self.cedulaDueno = cedulaDueno
+
+            self.vacunado = False
+
+    
+
+    def aplicarVacuna(self, codigoVacuna):
+
+        if codigoVacuna is None:
+
+            print("Ingrese un codigo de vacuna")
+
+        else:
+
+            self.vacunado = True
+
+    
+
+class perro(animal):
+
+    
+
+    def ladrar(self):
+
+        pass
+
+    
+
+    def mostrarDatosDeAnimal(self):
+
+        vacunadoPerro = "no esta vacunado"
+
+        if self.vacunado:
+
+            vacunado = "esta vacunado" 
+
+        print("El perro se llama " + self.nombre +
+
+              "tiene: " + str(self.edad) + "annos y " + vacunado)
+
+class gato(animal):
+
+    
+
+    def maullar(self):
+
+        pass
+
+    
+
+    def mostrarDatosDeAnimal(self):
+
+        vacunado = "no esta vacunado"
+
+        if self.vacunado:
+
+            vacunado = "esta vacunado" 
+
+        print("El gato se llama " + self.nombre +
+
+              "tiene: " + str(self.edad) + "annos y " + vacunado)
+
+        
+
+firulais = perro("Firulais", 5, "V-5555555")
+
+firulais.aplicarVacuna("P55555555")
+
+firulais.mostrarDatosDeAnimal()
+
+minina = gato("minina", 5, "V-66666666")
+
+minina.mostrarDatosDeAnimal()
