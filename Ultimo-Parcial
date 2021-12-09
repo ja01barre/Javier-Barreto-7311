@@ -1,0 +1,58 @@
+#Python 2.7.17
+
+
+vDepositos = [30, 420, 57, 58, 7, 45, 26, 35, 83, 56, 57, 97, 28, 115, 53, 35, 99, 62, 78, 29, 98, 8, 42, 56, 86, 28, 86, 95, 26, 28, 67, 21, 815, 869, 104, 58, 512, 24, 92, 89, 67, 53, 81, 79, 83, 496, 44, 132, 77, 98, 73, 57]
+
+class Cuentas:  
+    saldo = 0;
+    def __init__(self, nombre, apellido, cedula):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.cedula = cedula
+        
+class CuentaDeAhorros(Cuentas):
+    
+    __cantidadDeNumerosPerfectos = 0
+    __promedioDepositos = 0
+    
+    def numeroPerfecto(self, num):
+        suma = 0
+        for i in range(1,num):
+            if (num % (i) == 0):
+                suma += (i)
+        if num == suma:
+            return True
+        else:
+            return False
+    
+    def realizarDeposito(self):
+        i = 0
+        while i < len(vDepositos):
+          self.saldo += vDepositos[i]   
+          if self.numeroPerfecto(vDepositos[i]):
+            self.__cantidadDeNumerosPerfectos += 1
+          i += 1
+        self.__promedioDepositos = self.saldo / len(vDepositos)
+    pass
+    
+    def consultarSaldo(self):
+        vResult = self.saldo
+        print("El saldo de " + self.nombre + " " + self.apellido + " es: " + str(self.saldo))
+        return vResult
+    
+    def consultarNumerosPerfectos(self):        
+        vResult = self.__cantidadDeNumerosPerfectos
+        print("Numeros perfectos: " + str(self.__cantidadDeNumerosPerfectos))
+        return vResult
+    
+    def promedioDepositos(self):        
+        vResult = self.__promedioDepositos
+        print("Promedio de depositos: " + str(self.__promedioDepositos))
+        return vResult
+   
+
+cliente = CuentaDeAhorros("Javier", "Barreto", "V-222222222");
+cliente.realizarDeposito()
+cliente.consultarSaldo()
+cliente.consultarNumerosPerfectos()
+cliente.promedioDepositos()
